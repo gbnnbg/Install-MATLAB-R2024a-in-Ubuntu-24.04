@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MATLAB R2024a
+Comment=Start MATLAB R2024a
+Exec=/usr/local/bin/matlab %F
+Terminal=false
+Categories=Development;Science;Math;
+MimeType=text/x-matlab;text/x-simulink;
