@@ -1,5 +1,5 @@
 # Install-MATLAB-R2024a-in-Ubuntu-24.04
-在Ubuntu24.04上安装MATLAB 2024a
+# 在Ubuntu24.04上安装MATLAB 2024a
 在ubuntu 24.04中安装matlab非常麻烦，因为在安装过程中，安装程序会尝试调用映像文件中的旧的libstdc++.so.6，即使在离线状态下使用如下命令：LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6 ./install 也会在输入密钥和加载证书时出现问题，因此只能使用静默安装。
 从以下链接下载R2024a for linux: https://pan.baidu.com/s/18uG5hnl8lSbuzVoyLKLvXQ 提取码:c3ac 下载github库中其他内容
 在图形界面中，双击.iso文件即可装载镜像文件系统。修改github库中的“installer_input.txt”，特别需要按照如下方式修改这一行：
@@ -23,16 +23,16 @@ source ~/.bashrc
 matlab
 此时应该能正常启动matlab了。
 
-像windows中一样启动matlab和matlab的文件
-将“matlab“文件复制到/usr/local/bin/matlab：sudo cp <path_to_your_file>/matlab /usr/local/bin/matlab
+# 像windows中一样启动matlab和matlab的文件
+将从github下载的“matlab“文件复制到/usr/local/bin/matlab：sudo cp <path_to_your_file>/matlab /usr/local/bin/matlab
 在终端中运行:sudo chmod +x /usr/local/bin/matlab
-将"matlab.desktop"复制到~/.local/share/applications：cp <path_to_your_file>/matlab.desktop ~/.local/share/applications/matlab.desktop
+将从github下载的"matlab.desktop"复制到~/.local/share/applications：cp <path_to_your_file>/matlab.desktop ~/.local/share/applications/matlab.desktop
 在终端中输入：update-desktop-database ~/.local/share/applications
 
-可能遇到的问题
-提示mkdir: 无法创建目录 "/home/<user_name>/.MathWorks": 权限不够
+# 可能遇到的问题
+1. 提示mkdir: 无法创建目录 "/home/<user_name>/.MathWorks": 权限不够
 解决办法：sudo chown -R <user_name>:<user_name> /home/<user_name>/.MathWorks
-打开matlab时要求重新输入密钥和证书
+2. 打开matlab时要求重新输入密钥和证书
 查看/usr/local/MATLAB/R2024a文件夹下是否有文件夹，licenses文件夹是否有.lic文件。如果没有，在/usr/local/MATLAB/R2024a文件夹下打开终端中并输入：
 sudo mkdir licenses
 cd licenses
